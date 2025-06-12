@@ -6,4 +6,5 @@ public abstract class BankAccount {
 	String mobileNumber;
 	double balance;
 	boolean isACtive;
+	
 }
