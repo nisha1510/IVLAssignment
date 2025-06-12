@@ -4,30 +4,30 @@ You are required to create a system that supports the following conditions:
 
 Functional Requirements:
 1. Base Account Rules:
-   Every account must have:
-        Account Number (auto-generated)
-        Account Holder Name
-        Mobile Number
-        Initial Deposit
-      Each account must be validated and confirmed before activation.
+ -  Every account must have:
+      -Account Number (auto-generated)
+      -Account Holder Name
+      -Mobile Number
+      -Initial Deposit
+      -Each account must be validated and confirmed before activation.
 2. Saving Account Rules:
-      Minimum deposit should be ₹1000.
-      Only individual customers are allowed to open a savings account.
-      A savings account earns 4% interest per annum (implement a method to calculate interest).
-      Withdrawals are limited to 3 per month.
+      -Minimum deposit should be ₹1000.
+      -Only individual customers are allowed to open a savings account.
+      -A savings account earns 4% interest per annum (implement a method to calculate interest).
+      -Withdrawals are limited to 3 per month.
 3. Current Account Rules:
-      Minimum deposit should be ₹5000.
-      Can be opened by individuals or businesses.
-      No interest is provided.
-      Must maintain a minimum balance of ₹2000, or else a penalty of ₹500 is charged.
+      -Minimum deposit should be ₹5000.
+      -Can be opened by individuals or businesses.
+      -No interest is provided.
+      -Must maintain a minimum balance of ₹2000, or else a penalty of ₹500 is charged.
 4. Common Behaviors:
-      openAccount() – to collect and validate inputs.
-      displayAccountDetails() – to show all current account information.
-      calculateInterest() – polymorphic method, overridden in Saving account only.
-      withdraw() – rules applied based on account type.
+      -openAccount() – to collect and validate inputs.
+      -displayAccountDetails() – to show all current account information.
+      -calculateInterest() – polymorphic method, overridden in Saving account only.
+      -withdraw() – rules applied based on account type.
 5.Technical Requirements:
-      Use abstract class or interface to define a general BankAccount.
-      Use inheritance for SavingAccount and CurrentAccount.
-      Apply method overriding to customize behavior.
-      Use encapsulation for protecting sensitive data like balance.
+      -Use abstract class or interface to define a general BankAccount.
+      -Use inheritance for SavingAccount and CurrentAccount.
+      -Apply method overriding to customize behavior.
+      -Use encapsulation for protecting sensitive data like balance.
       Use constructors to initialize values.
