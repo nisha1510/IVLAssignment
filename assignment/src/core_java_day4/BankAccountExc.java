@@ -1,9 +1,16 @@
 package core_java_day4;
 
+import java.util.Scanner;
+
 public class BankAccountExc {
 	private int accId;
 	private String accHolderName;
 	private double balance;
+	
+	
+	public BankAccountExc() {
+		super();
+	}
 	public BankAccountExc(int accId, String accHolderName, double balance) {
 		super();
 		this.accId = accId;
@@ -41,20 +48,17 @@ public class BankAccountExc {
 		}
 	}
 	void withdraw(double amount) {
-		if(amount>0 && balance>=amount) {
-//		if((balance-amount)>0) {
+		try {
+			if((balance-amount)<0) 
+				throw new InsufficientBalanceException("Your balance is low :"+balance);
 			balance-=amount;
-//			System.out.println(accNumber);
 			System.out.println("Account is debited by : "+amount);
 			System.out.println("New balance : "+balance);
 		}
-		else
-		{
-//			System.out.println(accNumber);
-			System.out.println("Insufficient Balance "+ balance);
-		}	
+		catch(Exception e) {
+			System.out.println(e);
+		}
 	}
-	
 	public static void main(String[] args) {
 		BankAccountExc acc = new BankAccountExc(101,"Nisha",1000);
 		acc.deposit(2000);
@@ -63,7 +67,8 @@ public class BankAccountExc {
 		System.out.println("--------------");
 		acc.deposit(2000);
 		System.out.println("--------------");
-		acc.withdraw(4000);;
+		acc.withdraw(4000);
+		
+
 	}
-	
 }
