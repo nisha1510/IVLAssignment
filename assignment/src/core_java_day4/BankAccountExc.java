@@ -4,6 +4,7 @@ public class BankAccountExc {
 	private int accId;
 	private String accHolderName;
 	private double balance;
+	
 	public BankAccountExc(int accId, String accHolderName, double balance) {
 		super();
 		this.accId = accId;
@@ -31,7 +32,6 @@ public class BankAccountExc {
 	void deposit(double amount) {
 		if(amount>0) {
 			balance+=amount;
-//			System.out.println(accNumber);
 			System.out.println("Account is credited by : "+amount);
 			System.out.println("New balance : "+balance);
 		}
@@ -41,18 +41,16 @@ public class BankAccountExc {
 		}
 	}
 	void withdraw(double amount) {
-		if(amount>0 && balance>=amount) {
-//		if((balance-amount)>0) {
+		try {
+			if((balance-amount)<0) 
+				throw new InsufficientBalanceException("Your balance is low :"+balance);
 			balance-=amount;
-//			System.out.println(accNumber);
 			System.out.println("Account is debited by : "+amount);
 			System.out.println("New balance : "+balance);
 		}
-		else
-		{
-//			System.out.println(accNumber);
-			System.out.println("Insufficient Balance "+ balance);
-		}	
+		catch(Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	public static void main(String[] args) {
