@@ -55,4 +55,15 @@ public class BankAccountExc {
 		}	
 	}
 	
+	public static void main(String[] args) {
+		BankAccountExc acc = new BankAccountExc(101,"Nisha",1000);
+		acc.deposit(2000);
+		System.out.println("--------------");
+		acc.withdraw(4000);
+		System.out.println("--------------");
+		acc.deposit(2000);
+		System.out.println("--------------");
+		acc.withdraw(4000);;
+	}
+	
 }
