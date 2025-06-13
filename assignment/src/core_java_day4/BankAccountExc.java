@@ -7,10 +7,10 @@ public class BankAccountExc {
 	private String accHolderName;
 	private double balance;
 	
-	
 	public BankAccountExc() {
 		super();
 	}
+	
 	public BankAccountExc(int accId, String accHolderName, double balance) {
 		super();
 		this.accId = accId;
@@ -38,7 +38,6 @@ public class BankAccountExc {
 	void deposit(double amount) {
 		if(amount>0) {
 			balance+=amount;
-//			System.out.println(accNumber);
 			System.out.println("Account is credited by : "+amount);
 			System.out.println("New balance : "+balance);
 		}
