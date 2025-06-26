@@ -23,7 +23,10 @@ public class OrderThread2 extends Thread{
 		th1.start();
 		
 		OrderThread2 th2 = new OrderThread2(inv,"Nisha",30);
-		th1.start();
+		th2.start();
+		
+		OrderThread2 th3 = new OrderThread2(inv,"Nisha",50);
+		th3.start();
 	}
 	
 }

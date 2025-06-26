@@ -1,28 +1,24 @@
 package tradingsystem;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class Market {
+	
+	private final Map<String, Stock> stockMap = new HashMap<>();
+	
+	public void addStock(Stock s) {
+		stockMap.put(s.getStockId(), s);
+	}
+	public Stock getStock(String stockId) throws StockNotFoundException {
+		Stock s = stockMap.get(stockId);
+	    if (s == null)
+	    	throw new StockNotFoundException("Stock ID '" + stockId + "' not found.");
+	        return s;
+	    }
 
-    private final Map<String, Stock> stocks = new ConcurrentHashMap<>();
-
-    public void addStock(Stock stock) {
-        stocks.put(stock.getStockId(), stock);
-    }
-
-    public Stock getStock(String stockId) throws StockNotFoundException {
-        Stock stock = stocks.get(stockId);
-        if (stock == null) {
-            throw new StockNotFoundException("Stock ID " + stockId + " not found in market.");
-        }
-        return stock;
-    }
-
-    public void displayMarket() {
-        System.out.println("\nMarket Summary:");
-        for (Stock stock : stocks.values()) {
-            System.out.println(stock.getStockName() + " | Shares Available: " + stock.getAvailableShares());
-        }
+	public void showAllStocks() {
+	    System.out.println("\nMarket Stocks:");
+	    stockMap.values().forEach(System.out::println);
     }
 }

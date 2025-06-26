@@ -11,9 +11,11 @@ public class InventorySync2 {
 	public synchronized void purchase(String user, int qty) {
 		lock.lock();
 		try {
+			System.out.println("acquires lock");
 			if(stock>=qty) {
 				System.out.println(user+" purchased "+qty+" item ");
 				stock-=qty;
+				System.out.println("available stock : "+getStock());
 			}
 			else
 			{
@@ -21,6 +23,7 @@ public class InventorySync2 {
 			}
 		}finally {
 			lock.unlock();
+			System.out.println("lock released");
 		}
 	}
 
