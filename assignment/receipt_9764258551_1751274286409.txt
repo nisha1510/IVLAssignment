@@ -1,0 +1,6 @@
+📄 Recharge Receipt
+Date: 2025-06-30T14:34:46.438079
+Mobile: 9764258551
+Plan: 1GB/day for 28 days
+Price: ₹209.0
+Payment Method: UPI
